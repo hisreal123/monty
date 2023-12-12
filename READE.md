@@ -1,1 +1,0 @@
-monty c project initialize
