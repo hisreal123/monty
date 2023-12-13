@@ -8,15 +8,17 @@
 
 void _read(FILE *file_d)
 {
-	char *fetch, *line[100], *token = NULL;
-	int line_no = 1, i;
+	char fetch[100], *line[100], *token = NULL;
+	int line_no = 1, i = 0;
 	stack_t *stack = NULL;
-	size_t read, len = 0;
 
-	while ((read = getline(&fetch, &len, file_d)) != (size_t)-1)
+	while (fgets(fetch, sizeof(fetch), file_d) != NULL)
 	{
-		fetch[read - 1] = '\0';
-		if (fetch[0] != '\0')
+		while (fetch[i] != '\0')
+			i++;
+		if ( i > 0 && fetch[i - 1] == '\n')
+			fetch[i - 1] = '\0';
+		if (i > 0)
 		{
 			token = strtok(fetch, " ");
 			i = 0;
@@ -29,9 +31,5 @@ void _read(FILE *file_d)
 			instructions(&stack, line, line_no);
 		}
 		line_no++;
-		len = 0;
-		free(fetch);
-		fetch = NULL;
 	}
-	free(fetch);
 }

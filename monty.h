@@ -1,6 +1,5 @@
 #ifndef MONTY_H
 #define MONTY_H
-#define _GNU_SOURCE
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,7 +43,6 @@ void push(stack_t **stack, char *val, int line_no);
 void pop(stack_t **stack, char *val, int line_no);
 void pall(stack_t **stack, char *val, int line_no);
 int Ato1(char *str);
-size_t getlin(char **mem, size_t *len, FILE *line);
 
 
 #endif
