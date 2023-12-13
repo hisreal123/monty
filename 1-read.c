@@ -13,7 +13,7 @@ void _read(FILE *file_d)
 	stack_t *stack = NULL;
 	size_t read, len = 0;
 
-	while ((read = getlin(&fetch, &len, file_d)) != (size_t)-1)
+	while ((read = getline(&fetch, &len, file_d)) != (size_t)-1)
 	{
 		fetch[read - 1] = '\0';
 		if (fetch[0] != '\0')

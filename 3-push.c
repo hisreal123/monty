@@ -27,7 +27,7 @@ void push(stack_t **stack, char *val, int line_no)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-        	fprintf(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -37,7 +37,7 @@ void push(stack_t **stack, char *val, int line_no)
 	if (*stack != NULL)
 	{
 		new->next = *stack;
-        	(*stack)->prev = new;
+		(*stack)->prev = new;
 	}
 	else
 		new->next = NULL;
