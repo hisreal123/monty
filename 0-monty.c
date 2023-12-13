@@ -24,6 +24,6 @@ int main(int argc, char **argv)
 			printf("Error: Can't open file_d <%s>\n", argv[1]);
 	}
 	else
-		printf("Usage: monty file\n");
+		printf("Usage: monty file.m\n");
 	exit(EXIT_FAILURE);
 }

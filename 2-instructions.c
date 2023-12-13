@@ -15,10 +15,9 @@ void instructions(stack_t **stack, char **inst, int line_no)
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pop", pop},
-		{"print", pall},
+		{"pall", pall},
 		{NULL, NULL}
 		};
-
 	while (instructions[i].opcode != NULL)
 	{
 		if (strcmp(instructions[i].opcode, inst[0]) == 0)

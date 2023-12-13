@@ -13,7 +13,6 @@ void pall(stack_t **stack, char *val, int line_no)
 	stack_t *curr;
 
 	curr = *stack;
-	printf("Stack: ");
 
 	while (curr != NULL)
 	{

@@ -8,16 +8,30 @@
 
 void _read(FILE *file_d)
 {
-	char *line;
-	int line_no = 1;
+	char *fetch, *line[100], *token = NULL;
+	int line_no = 1, i;
 	stack_t *stack = NULL;
+	size_t read, len = 0;
 
-	while (fgets(line, sizeof(line), file_d) != NULL)
+	while ((read = getlin(&fetch, &len, file_d)) != (size_t)-1)
 	{
-		if (sizeof(line) != 0)
+		fetch[read - 1] = '\0';
+		if (fetch[0] != '\0')
 		{
-			instructions(&stack, &line, line_no);
+			token = strtok(fetch, " ");
+			i = 0;
+			while (token && i < 100)
+			{
+				line[i] = token;
+				token = strtok(NULL, " ");
+				i++;
+			}
+			instructions(&stack, line, line_no);
 		}
 		line_no++;
+		len = 0;
+		free(fetch);
+		fetch = NULL;
 	}
+	free(fetch);
 }

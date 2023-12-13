@@ -13,7 +13,7 @@ void push(stack_t **stack, char *val, int line_no)
 	stack_t *new;
 	int va1;
 
-	if (val != NULL)
+	if (val == NULL)
 	{
 		fprintf(stderr, "L<%d>: usage: push integer\n", line_no);
 		exit(EXIT_FAILURE);
