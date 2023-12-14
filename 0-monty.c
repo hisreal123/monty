@@ -1,5 +1,7 @@
 #include "monty.h"
 
+FILE *file_d;
+
 /**
  * main - funtion to implement a custom monty program
  * @argc: argument count
@@ -9,7 +11,6 @@
 
 int main(int argc, char **argv)
 {
-	FILE *file_d;
 
 	if (argc == 2)
 	{
@@ -17,7 +18,6 @@ int main(int argc, char **argv)
 		if (file_d != NULL)
 		{
 			_read(file_d);
-			fclose(file_d);
 			exit(EXIT_SUCCESS);
 		}
 		else

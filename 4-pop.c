@@ -3,21 +3,20 @@
 /**
  * pop - func to remove the top of the stack
  * @stack: pointer to the top of stack
- * @val: value of line
  * @line_no: line index of file
  * Return: empty
 */
 
-void pop(stack_t **stack, char *val, int line_no)
+void pop(stack_t **stack, unsigned int line_no)
 {
 	stack_t *temp;
 
-	(void)val;
 	(void)line_no;
 
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L<%d>: cant pop an empty stack\n", line_no);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 

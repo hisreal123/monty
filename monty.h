@@ -7,6 +7,9 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+extern char *value;
+extern FILE *file_d;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -34,16 +37,19 @@ struct stack_s *next;
 typedef struct instruction_s
 {
 char *opcode;
-void (*f)(stack_t **stack, char *val, int line_number);
+void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 void _read(FILE *file_d);
-void instructions(stack_t **stack, char **inst, int line_no);
-void push(stack_t **stack, char *val, int line_no);
-void pop(stack_t **stack, char *val, int line_no);
-void pall(stack_t **stack, char *val, int line_no);
-void pint(stack_t **stack, char *val, int line_no);
+void instructions(stack_t **stack, char *inst, unsigned int line_no);
+void push(stack_t **stack, unsigned int line_no);
+void pop(stack_t **stack, unsigned int line_no);
+void pall(stack_t **stack, unsigned int line_no);
+void pint(stack_t **stack, unsigned int line_no);
 int Ato1(char *str);
+void free_stack(stack_t *stack);
+int check_value(stack_t **stack, unsigned int line_no);
+void nop(stack_t **stack, unsigned int line_no);
 
 
 #endif

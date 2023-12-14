@@ -8,7 +8,7 @@
  * Return: EXIT_FAILURE if instructions don't exist, else return empty
 */
 
-void instructions(stack_t **stack, char **inst, int line_no)
+void instructions(stack_t **stack, char *inst, unsigned int line_no)
 {
 	int i = 0;
 
@@ -17,17 +17,19 @@ void instructions(stack_t **stack, char **inst, int line_no)
 		{"pop", pop},
 		{"pall", pall},
 		{"pint", pint},
+		{"nop", nop},
 		{NULL, NULL}
 		};
 	while (instructions[i].opcode != NULL)
 	{
-		if (strcmp(instructions[i].opcode, inst[0]) == 0)
+		if (strcmp(instructions[i].opcode, inst) == 0)
 		{
-			instructions[i].f(stack, inst[1], line_no);
+			instructions[i].f(stack, line_no);
 			return;
 		}
 		i++;
 	}
-	fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_no, inst[0]);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_no, inst);
+	free_stack(*stack);
 	exit(EXIT_FAILURE);
 }

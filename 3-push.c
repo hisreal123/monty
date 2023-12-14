@@ -1,33 +1,52 @@
 #include "monty.h"
 
 /**
+ * check_value - func to scan the push value
+ * @stack: pointer to the stack
+ * @line_no: line index of command
+ * Return: the correct value
+*/
+
+int check_value(stack_t **stack, unsigned int line_no)
+{
+	int va1;
+
+	if (*value == '\0')
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_no);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+	va1 = Ato1(value);
+	if (va1 == -1)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_no);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+
+	return (va1);
+}
+
+/**
  * push - func to add to the top of a stack
  * @stack: pointer to the stack top
- * @val: value of the line
  * @line_no: line index of file
  * Return: empty
 */
 
-void push(stack_t **stack, char *val, int line_no)
+void push(stack_t **stack, unsigned int line_no)
 {
 	stack_t *new;
 	int va1;
 
-	if (val == NULL)
-	{
-		fprintf(stderr, "L<%d>: usage: push integer\n", line_no);
-		exit(EXIT_FAILURE);
-	}
-	va1 = Ato1(val);
-	if (va1 == -1)
-	{
-		fprintf(stderr, "L<%d>: usage: push integer\n", line_no);
-		exit(EXIT_FAILURE);
-	}
+	va1 = check_value(stack, line_no);
+
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -41,6 +60,5 @@ void push(stack_t **stack, char *val, int line_no)
 	}
 	else
 		new->next = NULL;
-
 	*stack = new;
 }
