@@ -16,6 +16,7 @@ void instructions(stack_t **stack, char **inst, int line_no)
 		{"push", push},
 		{"pop", pop},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 		};
 	while (instructions[i].opcode != NULL)
