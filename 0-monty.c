@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 			exit(EXIT_SUCCESS);
 		}
 		else
-			printf("Error: Can't open file_d <%s>\n", argv[1]);
+			printf("Error: Can't open file_d %s\n", argv[1]);
 	}
 	else
 		printf("Usage: monty file.m\n");
