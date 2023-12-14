@@ -13,7 +13,7 @@ void pchar(stack_t **stack, unsigned int line_no)
 
 	if (curr == NULL)
 	{
-		fprintf(stderr, "L<%d>: cant pchar, stack empty\n", line_no);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_no);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
@@ -22,7 +22,7 @@ void pchar(stack_t **stack, unsigned int line_no)
 		printf("%c\n", curr->n);
 	else
 	{
-		fprintf(stderr, "L<%d>: cant pchar, value out of range\n", line_no);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_no);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}

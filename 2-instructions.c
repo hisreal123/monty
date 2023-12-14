@@ -40,6 +40,8 @@ void instructions(stack_t **stack, char *inst, unsigned int line_no)
 		}
 		i++;
 	}
+	if (strcmp(inst[0], "#") == 0)
+		return;
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_no, inst);
 	free_stack(*stack);
 	exit(EXIT_FAILURE);

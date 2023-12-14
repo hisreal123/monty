@@ -11,8 +11,6 @@ void pop(stack_t **stack, unsigned int line_no)
 {
 	stack_t *temp;
 
-	(void)line_no;
-
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: cant pop an empty stack\n", line_no);
@@ -24,5 +22,7 @@ void pop(stack_t **stack, unsigned int line_no)
 	*stack = (*stack)->next;
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
+
 	free(temp);
+	(void)line_no;
 }
