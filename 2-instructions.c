@@ -11,7 +11,6 @@
 void instructions(stack_t **stack, char *inst, unsigned int line_no)
 {
 	int i = 0;
-
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pop", pop},
@@ -40,7 +39,8 @@ void instructions(stack_t **stack, char *inst, unsigned int line_no)
 		}
 		i++;
 	}
-	if (strcmp(inst[0], "#") == 0)
+
+	if (inst[0] == '#')
 		return;
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_no, inst);
 	free_stack(*stack);
