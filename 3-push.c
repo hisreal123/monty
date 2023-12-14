@@ -1,12 +1,12 @@
 #include "monty.h"
-
+#include <ctype.h> /*this was not added, error occured was  it was  implicitly declared */
 /**
  * push - func to add to the top of a stack
  * @stack: pointer to the stack top
  * @val: value of the line
  * @line_no: line index of file
  * Return: empty
-*/
+ */
 
 void push(stack_t **stack, char *val, int line_no)
 {

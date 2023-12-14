@@ -18,9 +18,9 @@
  */
 typedef struct stack_s
 {
-int n;
-struct stack_s *prev;
-struct stack_s *next;
+    int n;
+    struct stack_s *prev;
+    struct stack_s *next;
 } stack_t;
 
 /**
@@ -33,8 +33,8 @@ struct stack_s *next;
  */
 typedef struct instruction_s
 {
-char *opcode;
-void (*f)(stack_t **stack, char *val, int line_number);
+    char *opcode;
+    void (*f)(stack_t **stack, char *val, int line_number);
 } instruction_t;
 
 void _read(FILE *file_d);
@@ -44,6 +44,6 @@ void pop(stack_t **stack, char *val, int line_no);
 void pall(stack_t **stack, char *val, int line_no);
 void pint(stack_t **stack, char *val, int line_no);
 int Ato1(char *str);
-
+void swap(stack_t **stack, unsigned int line_number);
 
 #endif
