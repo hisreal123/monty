@@ -1,5 +1,6 @@
 #include "monty.h"
 
+char *global(char *nothing);
 char *value;
 
 /**

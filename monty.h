@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+char *global(char *nothing);
 extern char *value;
 extern FILE *file_d;
 
