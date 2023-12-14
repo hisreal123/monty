@@ -21,9 +21,9 @@ extern FILE *file_d;
  */
 typedef struct stack_s
 {
-int n;
-struct stack_s *prev;
-struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -36,8 +36,8 @@ struct stack_s *next;
  */
 typedef struct instruction_s
 {
-char *opcode;
-void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 void _read(FILE *file_d);
@@ -50,6 +50,12 @@ int Ato1(char *str);
 void free_stack(stack_t *stack);
 int check_value(stack_t **stack, unsigned int line_no);
 void nop(stack_t **stack, unsigned int line_no);
+void swap(stack_t **stack, unsigned int line_no);
+void add(stack_t **stack, unsigned int line_no);
+void sub(stack_t **stack, unsigned int line_no);
+void divide(stack_t **stack, unsigned int line_no);
+void multiply(stack_t **stack, unsigned int line_no);
+void modulus(stack_t **stack, unsigned int line_no);
 
 
 #endif
