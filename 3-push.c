@@ -13,18 +13,28 @@ void push(stack_t **stack, char *val, int line_no)
 	stack_t *new;
 	int va1;
 
-	if (val == NULL)
+	if (val == NULL || val[0] == '\0')
 	{
 		fprintf(stderr, "L<%d>: usage: push integer\n", line_no);
 		exit(EXIT_FAILURE);
 	}
+
+	if (val[0] == '-' && !isdigit(val[1]))
+	{
+		fprintf(stderr, "L<%d>: usage: push integer\n", line_no);
+		exit(EXIT_FAILURE);
+	}
+
 	va1 = Ato1(val);
+
 	if (va1 == -1)
 	{
 		fprintf(stderr, "L<%d>: usage: push integer\n", line_no);
 		exit(EXIT_FAILURE);
 	}
+
 	new = malloc(sizeof(stack_t));
+
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");

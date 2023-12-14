@@ -16,6 +16,7 @@ void _read(FILE *file_d)
 	while ((read = getline(&fetch, &len, file_d)) != (size_t)-1)
 	{
 		fetch[read - 1] = '\0';
+
 		if (fetch[0] != '\0')
 		{
 			token = strtok(fetch, " ");
@@ -28,6 +29,7 @@ void _read(FILE *file_d)
 			}
 			instructions(&stack, line, line_no);
 		}
+		
 		line_no++;
 		len = 0;
 		free(fetch);
