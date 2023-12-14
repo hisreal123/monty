@@ -16,7 +16,7 @@ void _read(FILE *file_d)
 	{
 		while (fetch[i] != '\0')
 			i++;
-		if ( i > 0 && fetch[i - 1] == '\n')
+		if (i > 0 && fetch[i - 1] == '\n')
 			fetch[i - 1] = '\0';
 		if (i > 0)
 		{
