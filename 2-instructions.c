@@ -24,6 +24,11 @@ void instructions(stack_t **stack, char *inst, unsigned int line_no)
 		{"div", divide},
 		{"mul", multiply},
 		{"mod", modulus},
+		{"#", nop},
+		{"pchar", pchar},
+		{"pstr", pstr},
+		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 		};
 	while (instructions[i].opcode != NULL)
