@@ -10,7 +10,7 @@ void _read(FILE *file_d)
 {
 	char fetch[100], *line[100], *token = NULL;
 	int line_no = 1, i = 0;
-	stack_t *stack = NULL;
+	stack_t *stack = NULL, *temp;
 
 	while (fgets(fetch, sizeof(fetch), file_d) != NULL)
 	{
@@ -31,5 +31,11 @@ void _read(FILE *file_d)
 			instructions(&stack, line, line_no);
 		}
 		line_no++;
+	}
+	while (stack)
+	{
+		temp = stack->next;
+		free(stack);
+		stack = temp;
 	}
 }
