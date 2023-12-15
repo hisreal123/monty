@@ -48,7 +48,6 @@ void push(stack_t **stack, unsigned int line_no);
 void pop(stack_t **stack, unsigned int line_no);
 void pall(stack_t **stack, unsigned int line_no);
 void pint(stack_t **stack, unsigned int line_no);
-int Ato1(char *str);
 void free_stack(stack_t *stack);
 int check_value(stack_t **stack, unsigned int line_no);
 void nop(stack_t **stack, unsigned int line_no);

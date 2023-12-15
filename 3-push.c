@@ -9,22 +9,32 @@
 
 int check_value(stack_t **stack, unsigned int line_no)
 {
-	int va1;
+	int va1 = 0, temp = 1;
 
-	if (*value == '\0')
+	if (value == NULL || *value == '\0')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_no);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	va1 = Ato1(value);
-	if (va1 == -1)
+	if (*value == '-')
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_no);
-		free_stack(*stack);
-		exit(EXIT_FAILURE);
+		temp = -1;
+		value++;
 	}
-
+	while (*value)
+	{
+		if (*value >= '0' && *value <= '9')
+			va1 = va1 * 10 + (*value - '0');
+		else
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_no);
+			free_stack(*stack);
+			exit(EXIT_FAILURE);
+		}
+		value++;
+	}
+	va1 *= temp;
 	return (va1);
 }
 
