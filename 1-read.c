@@ -2,6 +2,7 @@
 
 char *global(char *nothing);
 char *value;
+int isstack;
 
 /**
  * _read - func to scan the passed instructions
@@ -22,6 +23,16 @@ void _read(FILE *file_d)
 		if (*line == NULL)
 			continue;
 		value = strtok(NULL, " \n\t");
+		if (strcmp(line[0], "stack") == 0)
+		{
+			isstack = 1;
+			continue;
+		}
+		if (strcmp(line[0], "queue") == 0)
+		{
+			isstack = 0;
+			continue;
+		}
 		instructions(&stack, line[0], line_no);
 
 	}

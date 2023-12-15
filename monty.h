@@ -10,6 +10,7 @@
 char *global(char *nothing);
 extern char *value;
 extern FILE *file_d;
+extern int isstack;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
