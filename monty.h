@@ -12,6 +12,7 @@ extern char *value;
 extern FILE *file_d;
 extern int isstack;
 
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -61,6 +62,7 @@ void pchar(stack_t **stack, unsigned int line_no);
 void pstr(stack_t **stack, unsigned int line_no);
 void rotl(stack_t **stack, unsigned int line_no);
 void rotr(stack_t **stack, unsigned int line_no);
+void push_queue(stack_t **stack, stack_t *new);
 
 
 #endif
